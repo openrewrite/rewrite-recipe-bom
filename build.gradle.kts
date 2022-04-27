@@ -8,6 +8,8 @@ javaPlatform {
     allowDependencies()
 }
 
+group = "org.openrewrite.recipe"
+
 val latest = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
 
 dependencies {
