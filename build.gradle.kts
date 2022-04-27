@@ -8,24 +8,24 @@ javaPlatform {
     allowDependencies()
 }
 
-val latestStatus = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
+val latest = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
 
 dependencies {
-    api(platform("org.openrewrite:rewrite-bom:${latestStatus}"))
+    api(platform("org.openrewrite:rewrite-bom:$latest"))
 
-    api("org.openrewrite.recipe:rewrite-circleci:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-concourse:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-github-actions:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-java-security:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-jhipster:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-kubernetes:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-logging-frameworks:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-micronaut:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-migrate-java:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-quarkus:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-spring:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-terraform:${latestStatus}")
-    api("org.openrewrite.recipe:rewrite-testing-frameworks:${latestStatus}")
+    api("org.openrewrite.recipe:rewrite-circleci:$latest")
+    api("org.openrewrite.recipe:rewrite-concourse:$latest")
+    api("org.openrewrite.recipe:rewrite-github-actions:$latest")
+    api("org.openrewrite.recipe:rewrite-java-security:$latest")
+    api("org.openrewrite.recipe:rewrite-jhipster:$latest")
+    api("org.openrewrite.recipe:rewrite-kubernetes:$latest")
+    api("org.openrewrite.recipe:rewrite-logging-frameworks:$latest")
+    api("org.openrewrite.recipe:rewrite-micronaut:$latest")
+    api("org.openrewrite.recipe:rewrite-migrate-java:$latest")
+    api("org.openrewrite.recipe:rewrite-quarkus:$latest")
+    api("org.openrewrite.recipe:rewrite-spring:$latest")
+    api("org.openrewrite.recipe:rewrite-terraform:$latest")
+    api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
 }
 
 publishing {
@@ -50,3 +50,6 @@ publishing {
         }
     }
 }
+
+// Nothing to test in this project, but I'd rather do this than fiddle with the github actions
+tasks.register("test")
