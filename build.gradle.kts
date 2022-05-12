@@ -1,4 +1,3 @@
-import org.owasp.dependencycheck.reporting.ReportGenerator
 
 plugins {
     `java-platform`
@@ -30,15 +29,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-spring:$latest")
     api("org.openrewrite.recipe:rewrite-terraform:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
-}
-
-dependencyCheck {
-    analyzers.nodeAuditEnabled = false
-    analyzers.nodeEnabled = false
-    analyzers.assemblyEnabled = false
-    failBuildOnCVSS = 9.0F
-    suppressionFile = "suppressions.xml"
-    format = ReportGenerator.Format.valueOf(project.properties["dependencyCheckFormat"] as String? ?: "HTML")
 }
 
 publishing {
