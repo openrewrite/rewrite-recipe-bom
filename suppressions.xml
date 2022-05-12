@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <notes><![CDATA[
+        file: rewrite-jhipster-1.6.0.jar
+        vuln id: cpe:2.3:a:jhipster:jhipster:1.6.0:*:*:*:*:*:*:*
+        package: pkg:maven/org.openrewrite.recipe/rewrite-jhipster@1.6.0
+        sev: CRITICAL
+        CVE-2019-16303
+        False positive. CVE refers to jhipster before 6.3.0, but rewrite-jhipster is not jhipster itself. CPE is too broad, apparently
+        matching any dependency that includes jhipster in the name.
+      ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite\-jhipster@.*$</packageUrl>
+        <cpe>cpe:/a:jhipster:jhipster</cpe>
+        <cve>CVE-2019-16303</cve>
+    </suppress>
+</suppressions>
