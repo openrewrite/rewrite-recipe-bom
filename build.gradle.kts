@@ -1,4 +1,3 @@
-
 plugins {
     `java-platform`
     id("org.openrewrite.root-project")
