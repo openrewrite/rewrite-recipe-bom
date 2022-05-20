@@ -16,10 +16,10 @@
     </suppress>
     <suppress>
         <notes><![CDATA[
-        file name: spring-*.jar
+        files: spring-aop.jar, spring-beans.jar, spring-context.jar, spring-core.jar, spring-jcl.jar, spring-messaging.jar, spring-web.jar, spring-webflux.jar, spring-context-support.jar, spring-jdbc.jar, spring-webmvc.jar, spring-websocket.jar
         sev: CRITICAL
         CVE-2016-1000027
-        False positive. We're not using HttpInvokerServiceExporter.
+        False positive. Affects Spring 5.3.16 up to 6.0 exposed HTTP Invoker endpoints to untrusted clients.  We're not using HttpInvokerServiceExporter and do not have any exposed HTTP Invoker endpoints.
      ]]></notes>
         <gav regex="true">org\.springframework:spring.*</gav>
         <cve>CVE-2016-1000027</cve>
