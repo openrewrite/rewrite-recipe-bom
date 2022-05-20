@@ -10,7 +10,7 @@ repositories {
 dependencies {
     implementation("org.gradle:test-retry-gradle-plugin:1.2.1")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
-    implementation("org.owasp:dependency-check-gradle:7.1.0.1")
+    implementation("org.owasp:dependency-check-gradle:latest.release")
     implementation("gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:0.16.1")
     implementation("com.github.jk1:gradle-license-report:2.0")
     implementation("com.netflix.nebula:gradle-contacts-plugin:6.0.0")
