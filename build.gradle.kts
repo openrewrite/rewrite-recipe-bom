@@ -4,6 +4,11 @@ plugins {
     id("org.openrewrite.maven-publish")
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
+    resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
+}
+
 javaPlatform {
     allowDependencies()
 }
