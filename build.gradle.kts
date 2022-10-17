@@ -17,6 +17,17 @@ group = "org.openrewrite.recipe"
 
 val latest = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
 
+configurations {
+    all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "com.fasterxml.jackson.core" && requested.version == "2.13.4") {
+                useVersion("2.13.4.2")
+                because("CVE-2022-42003 - https://nvd.nist.gov/vuln/detail/CVE-2022-42003")
+            }
+        }
+    }
+}
+
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
 

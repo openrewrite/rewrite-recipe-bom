@@ -32,4 +32,12 @@
    ]]></notes>
         <cve>CVE-2022-31569</cve>
     </suppress>
+    <suppress until="2022-11-17Z">
+        <notes><![CDATA[
+        sev: HIGH
+        file name: cucumber-core-7.8.1.jar (shaded: com.fasterxml.jackson.core:jackson-databind:2.13.4)
+        ]]></notes>
+        <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson\-databind@.*$</packageUrl>
+        <cve>CVE-2022-42003</cve>
+     </suppress>
 </suppressions>
