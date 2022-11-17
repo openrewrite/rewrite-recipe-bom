@@ -30,8 +30,8 @@ configurations {
 
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
-
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
+    api("org.openrewrite.recipe:rewrite-cloud-stability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-java-security:$latest")
