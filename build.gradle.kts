@@ -31,7 +31,7 @@ configurations {
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
-    api("org.openrewrite.recipe:rewrite-cloud-stability-analyzer:$latest")
+    api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-java-security:$latest")
@@ -69,5 +69,10 @@ publishing {
     }
 }
 
-// Nothing to test in this project, but I'd rather do this than fiddle with the github actions
-tasks.register("test")
+tasks.register("test") {
+    doLast {
+        configurations.create("resolveApi") {
+            extendsFrom(configurations.getByName("api"))
+        }.resolve()
+    }
+}
