@@ -3,7 +3,6 @@ import nebula.plugin.contacts.ContactsExtension
 
 plugins {
     base
-    id("org.openrewrite.license")
     id("org.openrewrite.dependency-check")
     id("nebula.contacts")
     id("nebula.info")
