@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress until="2023-01-07Z">
-        <notes><![CDATA[
-        file: rewrite-jhipster-1.6.0.jar
-        vuln id: cpe:2.3:a:jhipster:jhipster:1.6.0:*:*:*:*:*:*:*
-        package: pkg:maven/org.openrewrite.recipe/rewrite-jhipster@1.6.0
-        sev: CRITICAL
-        CVE-2019-16303
-        False positive. CVE refers to jhipster before 6.3.0, but rewrite-jhipster is not jhipster itself. CPE is too broad, apparently
-        matching any dependency that includes jhipster in the name.
-      ]]></notes>
-        <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite\-jhipster@.*$</packageUrl>
-        <cpe>cpe:/a:jhipster:jhipster</cpe>
-        <cve>CVE-2019-16303</cve>
-    </suppress>
-    <suppress until="2023-01-07Z">
+    <suppress until="2023-02-27Z">
         <notes><![CDATA[
         files: spring-aop.jar, spring-beans.jar, spring-context.jar, spring-core.jar, spring-jcl.jar, spring-messaging.jar, spring-web.jar, spring-webflux.jar, spring-context-support.jar, spring-jdbc.jar, spring-webmvc.jar, spring-websocket.jar
-        sev: CRITICAL
+        sev: HIGH
         CVE-2016-1000027
         False positive. Affects Spring 5.3.16 up to 6.0 exposed HTTP Invoker endpoints to untrusted clients.  We're not using HttpInvokerServiceExporter and do not have any exposed HTTP Invoker endpoints.
      ]]></notes>
         <gav regex="true">org\.springframework:spring.*</gav>
         <cve>CVE-2016-1000027</cve>
     </suppress>
-    <suppress until="2023-01-07Z">
+    <suppress until="2023-02-27Z">
         <notes><![CDATA[
             file name: snakeyaml-1.33.jar
             Severity: HIGH
