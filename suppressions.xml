@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress until="2023-02-27Z">
+    <suppress until="2023-03-10Z">
         <notes><![CDATA[
         files: spring-aop.jar, spring-beans.jar, spring-context.jar, spring-core.jar, spring-jcl.jar, spring-messaging.jar, spring-web.jar, spring-webflux.jar, spring-context-support.jar, spring-jdbc.jar, spring-webmvc.jar, spring-websocket.jar
         sev: HIGH
@@ -10,7 +10,7 @@
         <gav regex="true">org\.springframework:spring.*</gav>
         <cve>CVE-2016-1000027</cve>
     </suppress>
-    <suppress until="2023-02-27Z">
+    <suppress until="2023-03-10Z">
         <notes><![CDATA[
             file name: snakeyaml-1.33.jar
             Severity: HIGH
