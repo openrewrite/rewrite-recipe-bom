@@ -7,8 +7,11 @@
         CVE-2016-1000027
         False positive. Affects Spring 5.3.16 up to 6.0 exposed HTTP Invoker endpoints to untrusted clients.  We're not using HttpInvokerServiceExporter and do not have any exposed HTTP Invoker endpoints.
      ]]></notes>
-        <gav regex="true">org\.springframework:spring.*</gav>
         <cve>CVE-2016-1000027</cve>
+        <cve>CVE-2022-22965</cve>
+        <cve>CVE-2022-22950</cve>
+        <cve>CVE-2022-22968</cve>
+        <cve>CVE-2022-22970</cve>
     </suppress>
     <suppress until="2023-03-10Z">
         <notes><![CDATA[
@@ -18,5 +21,13 @@
         ]]></notes>
         <packageUrl regex="true">^pkg:maven/org\.yaml/snakeyaml@.*$</packageUrl>
         <cve>CVE-2022-1471</cve>
+    </suppress>
+    <suppress until="2023-03-10Z">
+        <notes><![CDATA[
+            file name: stax2-api-4.2.1.jar
+            Severity: HIGH
+            ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.codehaus\.woodstox/stax2\-api@.*$</packageUrl>
+        <cve>CVE-2022-40152</cve>
     </suppress>
 </suppressions>
