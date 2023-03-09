@@ -42,4 +42,15 @@
         <cpe>cpe:/a:gradle:gradle</cpe>
         <cpe>cpe:/a:gradle:gradle_enterprise</cpe>
     </suppress>
+    <suppress until="2023-04-10Z">
+        <notes><![CDATA[
+            file name: rewrite-gradle-7.38.0-SNAPSHOT.jar: gradle-native-6.1.1.jar
+            Severity: High
+            We are using the latest release and it's not actionable.
+        ]]></notes>
+        <cve>CVE-2020-11979</cve>
+        <cve>CVE-2021-29427</cve>
+        <cve>CVE-2021-29428</cve>
+        <cve>CVE-2021-32751</cve>
+    </suppress>
 </suppressions>
