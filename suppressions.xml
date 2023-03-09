@@ -31,4 +31,15 @@
         <packageUrl regex="true">^pkg:maven/org\.codehaus\.woodstox/stax2\-api@.*$</packageUrl>
         <cve>CVE-2022-40152</cve>
     </suppress>
+    <suppress until="2023-04-10Z">
+        <notes><![CDATA[
+            file name: rewrite-gradle-7.38.0-SNAPSHOT.jar: gradle-enterprise-gradle-plugin-3.12.4.jar
+            Severity: CRITICAL
+            We are using the latest release and it's not actionable.
+            ]]></notes>
+        <sha1>3cb4735ebcb32039b0d8dc632c6aea0c1e129055</sha1>
+        <cpe>cpe:/a:gradle:enterprise</cpe>
+        <cpe>cpe:/a:gradle:gradle</cpe>
+        <cpe>cpe:/a:gradle:gradle_enterprise</cpe>
+    </suppress>
 </suppressions>
