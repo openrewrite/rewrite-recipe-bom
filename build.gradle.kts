@@ -31,6 +31,7 @@ configurations {
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
     api("org.openrewrite:rewrite-kotlin:$latest")
+    api("org.openrewrite:rewrite-python:$latest")
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
     api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
