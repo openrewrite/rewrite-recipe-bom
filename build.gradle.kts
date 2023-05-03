@@ -20,6 +20,7 @@ dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
     api("org.openrewrite:rewrite-kotlin:$latest")
     api("org.openrewrite:rewrite-python:$latest")
+    api("org.openrewrite.meta:rewrite-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
     api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
@@ -33,6 +34,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-migrate-java:$latest")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
     api("org.openrewrite.recipe:rewrite-spring:$latest")
+    api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-terraform:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
 }
