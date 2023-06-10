@@ -24,6 +24,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
     api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
+    api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-java-security:$latest")
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
