@@ -28,6 +28,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-java-security:$latest")
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
+    api("org.openrewrite.recipe:rewrite-jenkins:$latest")
     api("org.openrewrite.recipe:rewrite-jhipster:$latest")
     api("org.openrewrite.recipe:rewrite-hibernate:$latest")
     api("org.openrewrite.recipe:rewrite-kubernetes:$latest")
