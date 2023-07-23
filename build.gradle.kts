@@ -35,6 +35,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-logging-frameworks:$latest")
     api("org.openrewrite.recipe:rewrite-micronaut:$latest")
     api("org.openrewrite.recipe:rewrite-migrate-java:$latest")
+    api("org.openrewrite.recipe:rewrite-okhttp:$latest")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
     api("org.openrewrite.recipe:rewrite-spring:$latest")
     api("org.openrewrite.recipe:rewrite-sql:$latest")
