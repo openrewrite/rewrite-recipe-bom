@@ -33,6 +33,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-hibernate:$latest")
     api("org.openrewrite.recipe:rewrite-kubernetes:$latest")
     api("org.openrewrite.recipe:rewrite-logging-frameworks:$latest")
+    api("org.openrewrite.recipe:rewrite-micrometer:$latest")
     api("org.openrewrite.recipe:rewrite-micronaut:$latest")
     api("org.openrewrite.recipe:rewrite-migrate-java:$latest")
     api("org.openrewrite.recipe:rewrite-okhttp:$latest")
