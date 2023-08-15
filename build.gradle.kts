@@ -42,6 +42,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-sql:$latest")
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-terraform:$latest")
+    //api("org.openrewrite.recipe:rewrite-testcontainers:$latest") // TODO Add after first release
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
 }
 
