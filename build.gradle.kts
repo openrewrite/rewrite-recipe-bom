@@ -18,32 +18,44 @@ group = "org.openrewrite.recipe"
 val latest = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
+
+    api("org.openrewrite:rewrite-cobol:$latest")
+    api("org.openrewrite:rewrite-javascript:$latest")
     api("org.openrewrite:rewrite-kotlin:$latest")
+    api("org.openrewrite:rewrite-polyglot:$latest")
     api("org.openrewrite:rewrite-python:$latest")
+    api("org.openrewrite:rewrite-templating:$latest")
+
     api("org.openrewrite.meta:rewrite-analysis:$latest")
+
+    api("org.openrewrite.recipe:rewrite-ai-search:$latest")
+
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
     api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
-    api("org.openrewrite.recipe:rewrite-java-security:$latest")
+    api("org.openrewrite.recipe:rewrite-hibernate:$latest")
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
+    api("org.openrewrite.recipe:rewrite-java-security:$latest")
     api("org.openrewrite.recipe:rewrite-jenkins:$latest")
     api("org.openrewrite.recipe:rewrite-jhipster:$latest")
     api("org.openrewrite.recipe:rewrite-hibernate:$latest")
     api("org.openrewrite.recipe:rewrite-kubernetes:$latest")
     api("org.openrewrite.recipe:rewrite-liberty:$latest")
+    //api("org.openrewrite.recipe:rewrite-launchdarkly:$latest")
     api("org.openrewrite.recipe:rewrite-logging-frameworks:$latest")
     api("org.openrewrite.recipe:rewrite-micrometer:$latest")
     api("org.openrewrite.recipe:rewrite-micronaut:$latest")
     api("org.openrewrite.recipe:rewrite-migrate-java:$latest")
     api("org.openrewrite.recipe:rewrite-okhttp:$latest")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
+    api("org.openrewrite.recipe:rewrite-recommendations:$latest")
     api("org.openrewrite.recipe:rewrite-spring:$latest")
     api("org.openrewrite.recipe:rewrite-sql:$latest")
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-terraform:$latest")
-    //api("org.openrewrite.recipe:rewrite-testcontainers:$latest") // TODO Add after first release
+    //api("org.openrewrite.recipe:rewrite-testcontainers:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
 }
 
