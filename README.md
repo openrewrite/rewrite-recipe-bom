@@ -3,6 +3,16 @@
 Align version numbers for all OpenRewrite maintained recipe modules.
 Intended to help with developing Recipe modules which take dependencies or otherwise build upon rewrite-maintained Recipe modules.
 
+
+<div align="center">
+
+<!-- Keep the gap above this line, otherwise they won't render correctly! -->
+[![ci](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml/badge.svg)](https://github.com/openrewrite/rewrite/actions/workflows/ci.yml)
+[![Apache 2.0](https://img.shields.io/github/license/openrewrite/rewrite-recipe-bom.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/org.openrewrite.recipe/rewrite-recipe-bom.svg)](https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-recipe-bom)
+[![Contributing Guide](https://img.shields.io/badge/Contributing-Guide-informational)](https://github.com/openrewrite/.github/blob/main/CONTRIBUTING.md)
+</div>
+
 ## Maven Usage
 
 Maven provides the [Bill of Materials pattern](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms) for aligning dependency versions.
