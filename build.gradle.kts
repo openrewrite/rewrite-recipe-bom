@@ -39,7 +39,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
     api("org.openrewrite.recipe:rewrite-java-security:$latest")
     api("org.openrewrite.recipe:rewrite-jenkins:$latest")
-//    api("org.openrewrite.recipe:rewrite-jhipster:$latest") // Archived
     api("org.openrewrite.recipe:rewrite-kubernetes:$latest")
     api("org.openrewrite.recipe:rewrite-liberty:$latest")
     api("org.openrewrite.recipe:rewrite-launchdarkly:$latest")
@@ -54,7 +53,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-sql:$latest")
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-terraform:$latest")
-    //api("org.openrewrite.recipe:rewrite-testcontainers:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
 }
 
