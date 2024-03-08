@@ -30,6 +30,7 @@ dependencies {
 
     api("org.openrewrite.recipe:rewrite-ai-search:$latest")
     api("org.openrewrite.recipe:rewrite-all:$latest")
+    api("org.openrewrite.recipe:rewrite-apache:$latest")
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
     api("org.openrewrite.recipe:rewrite-cloud-suitability-analyzer:$latest")
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
