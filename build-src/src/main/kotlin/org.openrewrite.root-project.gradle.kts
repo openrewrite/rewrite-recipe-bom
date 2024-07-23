@@ -1,6 +1,6 @@
 plugins {
     id("org.openrewrite.base")
-    id("nebula.release")
+    id("com.netflix.nebula.release")
     id("io.github.gradle-nexus.publish-plugin")
 }
 
