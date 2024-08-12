@@ -20,6 +20,7 @@ dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
 
     api("org.openrewrite:rewrite-cobol:$latest")
+    api("org.openrewrite:rewrite-csharp:$latest")
     api("org.openrewrite:rewrite-javascript:$latest")
     api("org.openrewrite:rewrite-kotlin:$latest")
     api("org.openrewrite:rewrite-polyglot:$latest")
