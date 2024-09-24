@@ -39,6 +39,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-concourse:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
     api("org.openrewrite.recipe:rewrite-docker:$latest")
+//    api("org.openrewrite.recipe:rewrite-dotnet:$latest")
     api("org.openrewrite.recipe:rewrite-feature-flags:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
 //    api("org.openrewrite.recipe:rewrite-gitlab:$latest")
