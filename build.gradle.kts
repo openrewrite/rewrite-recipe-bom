@@ -30,6 +30,7 @@ dependencies {
     api("org.openrewrite.meta:rewrite-analysis:$latest")
 
     api("org.openrewrite.recipe:rewrite-ai-search:$latest")
+    api("org.openrewrite.recipe:rewrite-android:$latest")
     api("org.openrewrite.recipe:rewrite-all:$latest")
     api("org.openrewrite.recipe:rewrite-apache:$latest")
     api("org.openrewrite.recipe:rewrite-circleci:$latest")
@@ -40,6 +41,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-docker:$latest")
     api("org.openrewrite.recipe:rewrite-feature-flags:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
+//    api("org.openrewrite.recipe:rewrite-gitlab:$latest")
     api("org.openrewrite.recipe:rewrite-hibernate:$latest")
     api("org.openrewrite.recipe:rewrite-jackson:$latest")
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
