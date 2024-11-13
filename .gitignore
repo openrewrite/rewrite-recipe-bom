@@ -1,4 +1,5 @@
 build/
+build-src/.kotlin/
 build-src/build/
 .gradle/
 out/
