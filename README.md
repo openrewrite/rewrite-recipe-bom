@@ -1,8 +1,16 @@
-# rewrite-recipe-bom
+<p align="center">
+  <a href="https://docs.openrewrite.org">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/openrewrite/rewrite/raw/main/doc/logo-oss-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/openrewrite/rewrite/raw/main/doc/logo-oss-light.svg">
+      <img alt="OpenRewrite Logo" src="https://github.com/openrewrite/rewrite/raw/main/doc/logo-oss-light.svg" width='600px'>
+    </picture>
+  </a>
+</p>
 
-Align version numbers for all OpenRewrite maintained recipe modules.
-Intended to help with developing Recipe modules which take dependencies or otherwise build upon rewrite-maintained Recipe modules.
-
+<div align="center">
+  <h1>rewrite-recipe-bom</h1>
+</div>
 
 <div align="center">
 
@@ -12,6 +20,11 @@ Intended to help with developing Recipe modules which take dependencies or other
 [![Maven Central](https://img.shields.io/maven-central/v/org.openrewrite.recipe/rewrite-recipe-bom.svg)](https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-recipe-bom)
 [![Contributing Guide](https://img.shields.io/badge/Contributing-Guide-informational)](https://github.com/openrewrite/.github/blob/main/CONTRIBUTING.md)
 </div>
+
+## What is this?
+
+Align version numbers for all OpenRewrite maintained recipe modules.
+Intended to help with developing Recipe modules which take dependencies or otherwise build upon rewrite-maintained Recipe modules.
 
 ## Maven Usage
 
