@@ -109,3 +109,7 @@ tasks.register("test") {
         }.resolve()
     }
 }
+
+tasks.register("licenseFormat") {
+    println("License format task not implemented")
+}
