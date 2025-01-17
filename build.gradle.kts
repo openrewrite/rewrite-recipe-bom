@@ -55,7 +55,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-okhttp:$latest")
     api("org.openrewrite.recipe:rewrite-openapi:$latest")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
-    api("org.openrewrite.recipe:rewrite-recommendations:$latest")
     api("org.openrewrite.recipe:rewrite-spring:$latest")
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-struts:$latest")
