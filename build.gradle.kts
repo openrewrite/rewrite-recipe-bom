@@ -26,7 +26,6 @@ dependencies {
     api("org.openrewrite:plugin:$latest")    
     api("org.openrewrite.maven:rewrite-maven-plugin:$latest")
 
-    api("org.openrewrite:rewrite-cobol:$latest")
     api("org.openrewrite:rewrite-csharp:$latest")
     api("org.openrewrite:rewrite-javascript:$latest")
     api("org.openrewrite:rewrite-kotlin:$latest")
