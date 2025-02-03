@@ -53,12 +53,12 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-okhttp:$latest")
     api("org.openrewrite.recipe:rewrite-openapi:$latest")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
+    api("org.openrewrite.recipe:rewrite-rewrite:$latest")
     api("org.openrewrite.recipe:rewrite-spring:$latest")
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-struts:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
     api("org.openrewrite.recipe:rewrite-third-party:$latest")
-    api("org.openrewrite.recipe:rewrite-rewrite:$latest")
 }
 
 publishing {
