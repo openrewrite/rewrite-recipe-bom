@@ -23,7 +23,7 @@ val latest = if (project.hasProperty("releasing")) "latest.release" else "latest
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
 
-    api("org.openrewrite:plugin:$latest")    
+    api("org.openrewrite:plugin:$latest")
     api("org.openrewrite.maven:rewrite-maven-plugin:$latest")
 
     api("org.openrewrite:rewrite-csharp:$latest")
