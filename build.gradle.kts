@@ -40,6 +40,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-codemods:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
     api("org.openrewrite.recipe:rewrite-docker:$latest")
+    api("org.openrewrite.recipe:rewrite-dropwizard:$latest")
     api("org.openrewrite.recipe:rewrite-feature-flags:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-gitlab:$latest")
