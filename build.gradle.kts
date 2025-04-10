@@ -28,7 +28,6 @@ dependencies {
 
     api("org.openrewrite:rewrite-csharp:$latest")
     api("org.openrewrite:rewrite-javascript:$latest")
-    api("org.openrewrite:rewrite-kotlin:$latest")
     api("org.openrewrite:rewrite-polyglot:$latest")
     api("org.openrewrite:rewrite-python:$latest")
     api("org.openrewrite:rewrite-templating:$latest")
