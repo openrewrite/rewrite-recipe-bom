@@ -47,6 +47,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-jackson:$latest")
     api("org.openrewrite.recipe:rewrite-java-dependencies:$latest")
     api("org.openrewrite.recipe:rewrite-jenkins:$latest")
+    api("org.openrewrite.recipe:rewrite-joda:$latest")
     api("org.openrewrite.recipe:rewrite-liberty:$latest")
     api("org.openrewrite.recipe:rewrite-logging-frameworks:$latest")
     api("org.openrewrite.recipe:rewrite-micrometer:$latest")
