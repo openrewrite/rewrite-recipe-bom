@@ -9,23 +9,23 @@ repositories {
 
 dependencies {
     implementation("org.owasp:dependency-check-gradle:latest.release")
-    implementation("com.netflix.nebula:gradle-contacts-plugin:6.0.0")
-    implementation("com.netflix.nebula:gradle-info-plugin:11.3.3")
-    implementation("com.netflix.nebula:nebula-release-plugin:19.0.10")
-    implementation("com.netflix.nebula:nebula-publishing-plugin:18.4.0")
-    implementation("com.netflix.nebula:nebula-project-plugin:9.6.3")
-    implementation("io.github.gradle-nexus:publish-plugin:1.0.0")
+    implementation("com.netflix.nebula.contacts:com.netflix.nebula.contacts.gradle.plugin:latest.release")
+    implementation("com.netflix.nebula.info:com.netflix.nebula.info.gradle.plugin:latest.release")
+    implementation("com.netflix.nebula.release:com.netflix.nebula.release.gradle.plugin:latest.release")
+    implementation("com.netflix.nebula:nebula-publishing-plugin:latest.release")
+    implementation("com.netflix.nebula:nebula-project-plugin:latest.release")
+    implementation("io.github.gradle-nexus:publish-plugin:latest.release")
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
 kotlin {
     jvmToolchain {
         this as JavaToolchainSpec
-        languageVersion.set(JavaLanguageVersion.of("17"))
+        languageVersion.set(JavaLanguageVersion.of("21"))
     }
 }
