@@ -4,9 +4,9 @@ plugins {
     `java-base`
     signing
     id("org.openrewrite.base")
-    id("nebula.maven-publish")
-    id("nebula.maven-resolved-dependencies")
-    id("nebula.maven-apache-license")
+    id("com.netflix.nebula.maven-publish")
+    id("com.netflix.nebula.maven-resolved-dependencies")
+    id("com.netflix.nebula.maven-apache-license")
 }
 
 plugins.withId("com.github.johnrengelman.shadow") {

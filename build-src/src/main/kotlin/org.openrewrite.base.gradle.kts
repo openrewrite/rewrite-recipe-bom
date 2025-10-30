@@ -4,8 +4,8 @@ import nebula.plugin.contacts.ContactsExtension
 plugins {
     base
     id("org.openrewrite.dependency-check")
-    id("nebula.contacts")
-    id("nebula.info")
+    id("com.netflix.nebula.contacts")
+    id("com.netflix.nebula.info")
 }
 
 group = "org.openrewrite"
