@@ -26,6 +26,6 @@ java {
 kotlin {
     jvmToolchain {
         this as JavaToolchainSpec
-        languageVersion.set(JavaLanguageVersion.of("21"))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
