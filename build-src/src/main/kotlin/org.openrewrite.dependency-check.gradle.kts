@@ -5,8 +5,8 @@ plugins {
 }
 
 configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
-    analyzers.nodeAuditEnabled = false
-    analyzers.nodeEnabled = false
+    analyzers.nodeAudit { enabled = false }
+    analyzers.nodePackage { enabled = false }
     analyzers.assemblyEnabled = false
     failBuildOnCVSS = 9.0F
     suppressionFile = "suppressions.xml"

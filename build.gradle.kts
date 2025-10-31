@@ -69,8 +69,6 @@ dependencies {
 publishing {
     publications {
         named("nebula", MavenPublication::class.java) {
-            from(components["javaPlatform"])
-
             pom.withXml {
                 val root = asElement()
                 val dependencyManagement = root.getElementsByTagName("dependencyManagement").item(0) as org.w3c.dom.Element
