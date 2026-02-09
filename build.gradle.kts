@@ -27,6 +27,7 @@ dependencies {
     api("org.openrewrite.maven:rewrite-maven-plugin:$latest")
 
     api("org.openrewrite:rewrite-csharp:$latest")
+    api("org.openrewrite:rewrite-docker:$latest")
     api("org.openrewrite:rewrite-javascript:$latest")
     api("org.openrewrite:rewrite-polyglot:$latest")
     api("org.openrewrite:rewrite-python:$latest")
@@ -38,7 +39,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-apache:$latest")
     api("org.openrewrite.recipe:rewrite-codemods:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
-    api("org.openrewrite.recipe:rewrite-docker:$latest")
     api("org.openrewrite.recipe:rewrite-dropwizard:$latest")
     api("org.openrewrite.recipe:rewrite-feature-flags:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
