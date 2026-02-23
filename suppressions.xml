@@ -26,6 +26,35 @@
         <cve>CVE-2021-26291</cve>
         <cve>CVE-2023-6394</cve>
         <cve>CVE-2024-12225</cve>
-        <cve>CVE-2023-6267</cve>
+        <cve>CVE-2022-0981</cve>
+        <cve>CVE-2023-4853</cve>
+        <cve>CVE-2021-29428</cve>
+        <cve>CVE-2020-28491</cve>
+        <cve>CVE-2021-37136</cve>
+        <cve>CVE-2021-37137</cve>
+        <cve>CVE-2021-37714</cve>
+        <cve>CVE-2022-42003</cve>
+        <cve>CVE-2022-42004</cve>
+        <cve>CVE-2023-1584</cve>
+        <cve>CVE-2025-66560</cve>
+        <cve>CVE-2020-25638</cve>
+        <cve>CVE-2021-29427</cve>
+        <cve>CVE-2021-20328</cve>
+        <cve>CVE-2022-21363</cve>
+        <cve>CVE-2021-43797</cve>
+        <cve>CVE-2023-0044</cve>
+        <cve>CVE-2021-21295</cve>
+        <cve>CVE-2021-21409</cve>
+        <cve>CVE-2021-2471</cve>
+        <cve>CVE-2021-38153</cve>
+        <cve>CVE-2021-21290</cve>
+        <cve>CVE-2021-29429</cve>
+        <cve>CVE-2020-25633</cve>
+        <cve>CVE-2021-20289</cve>
+        <cve>CVE-2021-28170</cve>
+        <cve>CVE-2021-3642</cve>
+        <cve>CVE-2020-25724</cve>
+        <cve>CVE-2020-8908</cve>
+        <cve>CVE-2023-0481</cve>
     </suppress>
 </suppressions>
