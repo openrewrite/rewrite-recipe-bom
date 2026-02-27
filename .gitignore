@@ -9,3 +9,5 @@ bin/
 .classpath
 .settings/
 .DS_Store
+
+.claude/settings.local.json 
