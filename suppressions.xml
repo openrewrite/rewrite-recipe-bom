@@ -18,6 +18,16 @@
     </suppress>
     <suppress until="2026-05-01Z">
         <notes><![CDATA[
+       False positive. CVE-2024-25712 is about the Go http-swagger package (XSS via
+       httpSwagger.WrapHandler), not the Java rewrite-openapi library. The scanner is
+       matching on the "swagger"/"openapi" name in the artifact.
+       Added: 2026-04-22
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-openapi@.*$</packageUrl>
+        <cve>CVE-2024-25712</cve>
+    </suppress>
+    <suppress until="2026-05-01Z">
+        <notes><![CDATA[
        file name: quarkus-update-recipes-1.9.0.jar
        ]]></notes>
         <cve>CVE-2022-21724</cve>
