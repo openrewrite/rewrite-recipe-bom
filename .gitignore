@@ -11,3 +11,7 @@ bin/
 .DS_Store
 
 .claude/settings.local.json 
+
+# Moderne CLI
+.moderne/*
+!.moderne/context/
