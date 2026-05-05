@@ -2,6 +2,7 @@ plugins {
     `java-platform`
     id("org.openrewrite.root-project")
     id("org.openrewrite.maven-publish")
+    id("org.openrewrite.build.bom-alignment")
 }
 
 configurations.all {
@@ -74,7 +75,7 @@ publishing {
                 val managedDependencies = dependencyManagement.getElementsByTagName("dependencies").item(0) as org.w3c.dom.Element
                 val dependencies = root.getElementsByTagName("dependencies").item(1) as org.w3c.dom.Element
                 dependencies.getElementsByTagName("dependency").let { dependencyList ->
-                    for (i in 0 until dependencyList.length) {
+                    (0 until dependencyList.length).forEach { _ ->
                         val dependency = dependencyList.item(0) as org.w3c.dom.Element
                         dependency.removeChild(dependency.getElementsByTagName("scope").item(0))
                         managedDependencies.appendChild(dependency)
@@ -83,14 +84,6 @@ publishing {
                 root.removeChild(dependencies)
             }
         }
-    }
-}
-
-tasks.register("test") {
-    doLast {
-        configurations.create("resolveApi") {
-            extendsFrom(configurations.getByName("api"))
-        }.resolve()
     }
 }
 
