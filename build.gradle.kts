@@ -2,7 +2,7 @@ plugins {
     `java-platform`
     id("org.openrewrite.root-project")
     id("org.openrewrite.maven-publish")
-    id("org.openrewrite.build.bom-alignment")
+    id("org.openrewrite.build.bom-alignment") version("latest.release")
 }
 
 configurations.all {
