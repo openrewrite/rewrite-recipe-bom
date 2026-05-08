@@ -5,12 +5,6 @@ plugins {
     id("org.openrewrite.build.bom-alignment") version("latest.release")
 }
 
-// TODO: Remove this once https://github.com/openrewrite/rewrite-build-gradle-plugin/tree/refs/tags/v2.16.1 publishes successfully
-// Gradle plugin portal under maintenance at the time of this release train, so the version of the plugin where this task passes cannot be published
-tasks.named("checkBomAlignment").configure {
-    enabled = false
-}
-
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
     resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
