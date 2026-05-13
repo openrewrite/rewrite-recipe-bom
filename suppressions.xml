@@ -67,4 +67,16 @@
         <cve>CVE-2020-8908</cve>
         <cve>CVE-2023-0481</cve>
     </suppress>
+    <suppress until="2026-06-01Z">
+        <notes><![CDATA[
+       False positive. CVE-2026-39852 (GHSA-rc95-pcm8-65v9) is an authorization bypass
+       in io.quarkus:quarkus-vertx-http via matrix parameters in HTTP path normalization.
+       quarkus-update-recipes is an OpenRewrite recipe JAR for migrating Quarkus apps and
+       does not contain or use the vulnerable quarkus-vertx-http runtime. CPE name match
+       on "quarkus" only.
+       Added: 2026-05-13
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
+        <cve>CVE-2026-39852</cve>
+    </suppress>
 </suppressions>
