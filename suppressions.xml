@@ -79,4 +79,16 @@
        <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2026-39852</cve>
     </suppress>
+    <suppress until="2026-07-01Z">
+        <notes><![CDATA[
+       False positive. CVE-2026-42582 (GHSA-2c5c-chwr-9hqw) is an unbounded byte[] allocation
+       in QPACK literal decoding, scoped to io.netty:netty-codec-http3 <= 4.2.12.Final
+       (patched in 4.2.13.Final). The flagged artifacts here are on the 4.1.x line and none
+       of them is netty-codec-http3, so the HTTP/3 codec is not present. CPE match on the
+       "netty" group only.
+       Added: 2026-05-27
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/io\.netty/netty-.*@4\.1\..*$</packageUrl>
+        <cve>CVE-2026-42582</cve>
+    </suppress>
 </suppressions>
