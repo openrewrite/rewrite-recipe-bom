@@ -15,3 +15,5 @@ bin/
 # Moderne CLI
 .moderne/*
 !.moderne/context/
+
+.context/
