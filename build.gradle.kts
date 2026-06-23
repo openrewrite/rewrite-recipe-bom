@@ -28,11 +28,7 @@ dependencies {
     api("org.openrewrite.maven:rewrite-maven-plugin:$latest")
 
     api("org.openrewrite:rewrite-cobol:$latest")
-    api("org.openrewrite:rewrite-csharp:$latest")
-    api("org.openrewrite:rewrite-docker:$latest")
-    api("org.openrewrite:rewrite-javascript:$latest")
     api("org.openrewrite:rewrite-polyglot:$latest")
-    api("org.openrewrite:rewrite-python:$latest")
     api("org.openrewrite:rewrite-templating:$latest")
 
     api("org.openrewrite.meta:rewrite-analysis:$latest")
