@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        file name: rewrite-jenkins-0.35.0-SNAPSHOT.jar
        sev: HIGH
@@ -10,13 +10,13 @@
         <cve>CVE-2022-34792</cve>
         <cve>CVE-2022-34794</cve>
     </suppress>
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        file name: rewrite-openapi-0.31.0-SNAPSHOT.jar
        ]]></notes>
         <cve>CVE-2022-24863</cve>
     </suppress>
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        False positive. CVE-2024-25712 is about the Go http-swagger package (XSS via
        httpSwagger.WrapHandler), not the Java rewrite-openapi library. The scanner is
@@ -26,7 +26,7 @@
        <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-openapi@.*$</packageUrl>
         <cve>CVE-2024-25712</cve>
     </suppress>
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        file name: quarkus-update-recipes-1.9.0.jar
        ]]></notes>
@@ -67,7 +67,7 @@
         <cve>CVE-2020-8908</cve>
         <cve>CVE-2023-0481</cve>
     </suppress>
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        False positive. CVE-2026-39852 (GHSA-rc95-pcm8-65v9) is an authorization bypass
        in io.quarkus:quarkus-vertx-http via matrix parameters in HTTP path normalization.
@@ -79,7 +79,7 @@
        <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2026-39852</cve>
     </suppress>
-    <suppress until="2026-07-01Z">
+    <suppress until="2026-08-01Z">
         <notes><![CDATA[
        False positive. CVE-2026-42582 (GHSA-2c5c-chwr-9hqw) is an unbounded byte[] allocation
        in QPACK literal decoding, scoped to io.netty:netty-codec-http3 <= 4.2.12.Final
@@ -90,5 +90,55 @@
        ]]></notes>
        <packageUrl regex="true">^pkg:maven/io\.netty/netty-.*@4\.1\..*$</packageUrl>
         <cve>CVE-2026-42582</cve>
+    </suppress>
+    <suppress until="2026-08-01Z">
+        <notes><![CDATA[
+       False positive. CVE-2026-50559 (GHSA-qcxp-gm7m-4j5v) is an HTTP path-based
+       authorization bypass in the Quarkus runtime (io.quarkus:quarkus-vertx-http,
+       Quarkus 3.x) via encoded matrix parameters and encoded slashes. By contrast
+       io.quarkus:quarkus-update-recipes is an OpenRewrite recipe JAR (versioned 1.x)
+       that ships YAML migration recipes for Quarkus apps; it does not contain or use
+       the vulnerable quarkus-vertx-http runtime. CPE name-match on "quarkus" only.
+       Arrives transitively via rewrite-third-party.
+       Added: 2026-07-03
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
+        <cve>CVE-2026-50559</cve>
+    </suppress>
+    <suppress until="2026-08-01Z">
+        <notes><![CDATA[
+       CVE-2026-53914 is unsafe deserialization of untrusted Kotlin build-cache
+       metadata, allowing code execution (fixed in Kotlin 2.4.20). It requires local
+       access, high privileges and high attack complexity (CVSS 6.7; the scanner
+       inflates it to CRITICAL). The org.jetbrains.kotlin:* artifacts (compiler,
+       daemon, script-runtime, stdlib, reflect, etc.) here arrive transitively via the
+       rewrite-kotlin recipe module; the vulnerable build-cache deserialization path
+       lives in the Kotlin Gradle plugin / build tooling, not in these libraries, and
+       is not exercised. No GA toolchain at 2.4.20 has been released yet (only
+       2.4.20-Beta1), so there is nothing to bump to. Re-evaluate when 2.4.20 goes GA.
+       Added: 2026-07-03
+       ]]></notes>
+        <cve>CVE-2026-53914</cve>
+    </suppress>
+    <suppress until="2026-08-01Z">
+        <notes><![CDATA[
+       jackson-databind polymorphic-typing / deserialization advisories:
+       CVE-2026-54512 (PolymorphicTypeValidator bypass via generic type parameters),
+       CVE-2026-54513 (allowIfSubTypeIsArray allowlist bypass), CVE-2026-54514
+       (InetSocketAddress eager DNS resolution / SSRF) and CVE-2026-54515
+       (case-insensitive deserialization bypasses per-property @JsonIgnoreProperties).
+       All require enabling default/polymorphic typing on attacker-controlled input;
+       OpenRewrite uses jackson to parse its own recipe YAML and serialized LSTs, not
+       untrusted polymorphic JSON, so the gadget paths are not reachable. jackson is
+       centrally managed via rewrite-core, so the version cannot be bumped per recipe
+       module. The 2.21.x and 2.22.x lines flagged here are already past their patch
+       lines for the two HIGH advisories. Re-evaluate when rewrite-core adopts the
+       clean 2.21.5 / 2.22.1 patch releases.
+       Added: 2026-07-03
+       ]]></notes>
+        <cve>CVE-2026-54512</cve>
+        <cve>CVE-2026-54513</cve>
+        <cve>CVE-2026-54514</cve>
+        <cve>CVE-2026-54515</cve>
     </suppress>
 </suppressions>
