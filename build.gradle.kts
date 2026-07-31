@@ -3,6 +3,7 @@ plugins {
     id("org.openrewrite.root-project")
     id("org.openrewrite.maven-publish")
     id("org.openrewrite.build.bom-alignment") version("latest.release")
+    id("org.openrewrite.build.publish-cgp") version("latest.release")
 }
 
 configurations.all {
