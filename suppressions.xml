@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        file name: rewrite-jenkins-0.35.0-SNAPSHOT.jar
        sev: HIGH
-       reason: False positive.
+       reason: False positive. These CVEs are for Jenkins plugins, not the rewrite-jenkins
+       recipe jar, which ships OpenRewrite recipes that migrate Jenkins plugin code and never
+       runs in a Jenkins controller. CPE name-match on "jenkins" only.
+       Cross-product CPE overclassifier — nothing for us to remediate, so suppressed indefinitely.
        ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-jenkins@.*$</packageUrl>
         <cve>CVE-2022-34793</cve>
         <cve>CVE-2022-34792</cve>
         <cve>CVE-2022-34794</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        file name: rewrite-openapi-0.31.0-SNAPSHOT.jar
+       False positive. CVE-2022-24863 is about the Go http-swagger package, not the Java
+       rewrite-openapi library. The scanner is matching on the "swagger"/"openapi" name in
+       the artifact.
+       Cross-ecosystem CPE overclassifier — nothing for us to remediate, so suppressed indefinitely.
        ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-openapi@.*$</packageUrl>
         <cve>CVE-2022-24863</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        False positive. CVE-2024-25712 is about the Go http-swagger package (XSS via
        httpSwagger.WrapHandler), not the Java rewrite-openapi library. The scanner is
        matching on the "swagger"/"openapi" name in the artifact.
+       Cross-ecosystem CPE overclassifier — nothing for us to remediate, so suppressed indefinitely.
        Added: 2026-04-22
        ]]></notes>
        <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-openapi@.*$</packageUrl>
         <cve>CVE-2024-25712</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        file name: quarkus-update-recipes-1.9.0.jar
+       False positive. Reference only. io.quarkus:quarkus-update-recipes is an OpenRewrite
+       recipe JAR (versioned 1.x) shipping YAML migration recipes for Quarkus apps; it does
+       not contain or use the Quarkus runtime. It reaches this project shaded into
+       rewrite-third-party. Its version numbering makes the quarkus CPE numerically
+       over-match it, flooding the scan with Quarkus runtime CVEs the artifact does not ship.
+       Cross-product CPE overclassifier — nothing for us to remediate, so suppressed
+       indefinitely. Scoped to the quarkus-update-recipes packageUrl so these CVEs still
+       surface if they ever match a genuinely affected artifact.
        ]]></notes>
+       <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2022-21724</cve>
         <cve>CVE-2022-4116</cve>
         <cve>CVE-2023-6267</cve>
@@ -67,31 +86,48 @@
         <cve>CVE-2020-8908</cve>
         <cve>CVE-2023-0481</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        False positive. CVE-2026-39852 (GHSA-rc95-pcm8-65v9) is an authorization bypass
        in io.quarkus:quarkus-vertx-http via matrix parameters in HTTP path normalization.
        quarkus-update-recipes is an OpenRewrite recipe JAR for migrating Quarkus apps and
        does not contain or use the vulnerable quarkus-vertx-http runtime. CPE name match
-       on "quarkus" only.
+       on "quarkus" only. The advisory is permanently scoped to the Quarkus runtime, so the
+       recipe jar can never become a true positive for it; suppressed indefinitely.
        Added: 2026-05-13
        ]]></notes>
        <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2026-39852</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
         <notes><![CDATA[
        False positive. CVE-2026-42582 (GHSA-2c5c-chwr-9hqw) is an unbounded byte[] allocation
        in QPACK literal decoding, scoped to io.netty:netty-codec-http3 <= 4.2.12.Final
        (patched in 4.2.13.Final). The flagged artifacts here are on the 4.1.x line and none
        of them is netty-codec-http3, so the HTTP/3 codec is not present. CPE match on the
-       "netty" group only.
+       "netty" group only. Same-vendor cross-module over-match, pinned to the CVE and
+       suppressed indefinitely: the advisory is permanently http3-scoped, so the 4.1.x line
+       can never become a true positive for it.
        Added: 2026-05-27
        ]]></notes>
        <packageUrl regex="true">^pkg:maven/io\.netty/netty-.*@4\.1\..*$</packageUrl>
         <cve>CVE-2026-42582</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
+        <notes><![CDATA[
+       False positive. CVE-2026-56816 (GHSA-hpcc-26xq-25fv, HIGH) is memory exhaustion via
+       HTTP/3 reserved frame types, scoped to io.netty:netty-codec-http3 < 4.2.16.Final.
+       netty-codec-http3 is not on any classpath here; the Netty artifacts present are the
+       core 4.1.x modules, which do not include HTTP/3 support. Same-vendor cross-module
+       over-match, identical in shape to CVE-2026-42582 above; pinned to the CVE and
+       suppressed indefinitely (permanently http3-scoped, so the 4.1.x line can never become
+       a true positive for this CVE).
+       Added: 2026-08-03
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/io\.netty/netty-.*@4\.1\..*$</packageUrl>
+        <cve>CVE-2026-56816</cve>
+    </suppress>
+    <suppress>
         <notes><![CDATA[
        False positive. CVE-2026-50559 (GHSA-qcxp-gm7m-4j5v) is an HTTP path-based
        authorization bypass in the Quarkus runtime (io.quarkus:quarkus-vertx-http,
@@ -99,13 +135,41 @@
        io.quarkus:quarkus-update-recipes is an OpenRewrite recipe JAR (versioned 1.x)
        that ships YAML migration recipes for Quarkus apps; it does not contain or use
        the vulnerable quarkus-vertx-http runtime. CPE name-match on "quarkus" only.
-       Arrives transitively via rewrite-third-party.
+       Arrives transitively via rewrite-third-party. The advisory is permanently scoped to
+       the Quarkus runtime, so the recipe jar can never become a true positive for it;
+       suppressed indefinitely.
        Added: 2026-07-03
        ]]></notes>
        <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2026-50559</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress>
+        <notes><![CDATA[
+       False positive. CVE-2009-2475, CVE-2009-2476, CVE-2009-2676, CVE-2009-2689,
+       CVE-2009-2690, CVE-2009-2716, CVE-2009-2717, CVE-2009-2719 and CVE-2009-2720 are
+       2009 advisories against Sun Java SE 5.0 / 6 and OpenJDK (cpe:/a:sun:java_se,
+       cpe:/a:sun:openjdk, cpe:/a:sun:jdk) — the JDK itself, covering non-final statics, JMX,
+       JDK13Services, the applet plugin, AWT, Java Web Start and javax.swing.plaf.synth. They
+       have nothing to do with net.java.dev.jna:jna / jna-platform, a JNI binding library.
+       Dependency-check mines "sun"/"java" vendor evidence from the net.java.dev.jna
+       coordinates and manifest and produces a LOW-confidence match against the JDK CPEs.
+       Cross-product CPE overclassifier — these advisories are permanently scoped to the
+       Sun/Oracle JDK, so jna can never become a true positive for them; suppressed
+       indefinitely.
+       Added: 2026-08-03
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/net\.java\.dev\.jna/jna(-platform)?@.*$</packageUrl>
+        <cve>CVE-2009-2475</cve>
+        <cve>CVE-2009-2476</cve>
+        <cve>CVE-2009-2676</cve>
+        <cve>CVE-2009-2689</cve>
+        <cve>CVE-2009-2690</cve>
+        <cve>CVE-2009-2716</cve>
+        <cve>CVE-2009-2717</cve>
+        <cve>CVE-2009-2719</cve>
+        <cve>CVE-2009-2720</cve>
+    </suppress>
+    <suppress until="2026-09-01Z">
         <notes><![CDATA[
        CVE-2026-53914 is unsafe deserialization of untrusted Kotlin build-cache
        metadata, allowing code execution (fixed in Kotlin 2.4.20). It requires local
@@ -114,13 +178,15 @@
        daemon, script-runtime, stdlib, reflect, etc.) here arrive transitively via the
        rewrite-kotlin recipe module; the vulnerable build-cache deserialization path
        lives in the Kotlin Gradle plugin / build tooling, not in these libraries, and
-       is not exercised. No GA toolchain at 2.4.20 has been released yet (only
-       2.4.20-Beta1), so there is nothing to bump to. Re-evaluate when 2.4.20 goes GA.
+       is not exercised. No GA toolchain at 2.4.20 has been released yet (as of
+       2026-08-03 Maven Central has only 2.4.20-Beta2), so there is nothing to bump to.
+       Re-evaluate when 2.4.20 goes GA.
        Added: 2026-07-03
        ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.jetbrains\.kotlin/.*@.*$</packageUrl>
         <cve>CVE-2026-53914</cve>
     </suppress>
-    <suppress until="2026-08-01Z">
+    <suppress until="2026-09-01Z">
         <notes><![CDATA[
        jackson-databind polymorphic-typing / deserialization advisories:
        CVE-2026-54512 (PolymorphicTypeValidator bypass via generic type parameters),
@@ -136,6 +202,7 @@
        clean 2.21.5 / 2.22.1 patch releases.
        Added: 2026-07-03
        ]]></notes>
+       <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson-databind@.*$</packageUrl>
         <cve>CVE-2026-54512</cve>
         <cve>CVE-2026-54513</cve>
         <cve>CVE-2026-54514</cve>
