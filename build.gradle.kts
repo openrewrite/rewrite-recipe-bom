@@ -62,6 +62,8 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-static-analysis:$latest")
     api("org.openrewrite.recipe:rewrite-testing-frameworks:$latest")
     api("org.openrewrite.recipe:rewrite-third-party:$latest")
+
+    api("org.openrewrite.tools:jgit-gpg-bc:$latest")
 }
 
 publishing {
