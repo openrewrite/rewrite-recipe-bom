@@ -11,6 +11,12 @@ configurations.all {
     resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
 }
 
+// rewrite-core pins an older jgit than the one jgit-gpg-bc pulls in; that lag is expected between
+// jgit releases and would otherwise block every publish, so keep jgit out of the alignment check only.
+configurations.named("resolveApi") {
+    exclude(group = "org.openrewrite.tools", module = "jgit")
+}
+
 javaPlatform {
     allowDependencies()
 }
