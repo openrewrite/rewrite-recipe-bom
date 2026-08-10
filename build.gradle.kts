@@ -1,5 +1,6 @@
 plugins {
     `java-platform`
+    id("org.openrewrite.build.recipe-repositories") version("latest.release")
     id("org.openrewrite.root-project")
     id("org.openrewrite.maven-publish")
     id("org.openrewrite.build.bom-alignment") version("latest.release")
