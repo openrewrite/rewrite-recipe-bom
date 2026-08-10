@@ -208,4 +208,33 @@
         <cve>CVE-2026-54514</cve>
         <cve>CVE-2026-54515</cve>
     </suppress>
+    <suppress until="2026-11-01Z">
+        <notes><![CDATA[
+       CVE-2023-33202 (GHSA-wjxj-5m7g-mg7q, MODERATE, CVSS 5.5) is a denial of service in
+       org.bouncycastle.openssl.PEMParser: parsing an OpenSSL PEM stream with crafted ASN.1
+       data raises an OutOfMemoryError. Fixed in Bouncy Castle 1.73.
+       Not reachable. These jars arrive on one path only:
+         rewrite-recipe-bom
+         └── org.openrewrite.tools:jgit-gpg-bc:1.5.0-SNAPSHOT
+             └── org.bouncycastle:bc{pg,pkix,prov,util}-jdk15on:1.70
+       jgit-gpg-bc reads local GnuPG keyrings to sign commits. It imports only the OpenPGP,
+       keybox, bcpg packet, ASN.1 and EC APIs (org.bouncycastle.openpgp.*,
+       org.bouncycastle.gpg.keybox.*, org.bouncycastle.bcpg.*); it never references
+       org.bouncycastle.openssl, so PEMParser is never constructed and no OpenSSL PEM
+       stream is ever parsed.
+       Not a version bump: the -jdk15on release line ended at 1.70 and the fix landed only
+       on the -jdk18on line, so remediation means swapping artifact coordinates. That swap
+       compiles only up to 1.78.1 — from 1.79 onwards PBESecretKeyDecryptor.recoverKeyData
+       changed signature for OpenPGP v6 AEAD support — and 1.78.1 is itself inside newer
+       Bouncy Castle advisory ranges (GHSA-574f-3g2m-x479 fixed in 1.80.2,
+       GHSA-cj8j-37rh-8475 and GHSA-c3fc-8qff-9hwx fixed in 1.84). Reaching a clean 1.85
+       requires porting the upstream Eclipse JGit refactor that drops the fork's local
+       SExprParser / SXprUtils / OCBPBEProtectionRemoverFactory in favour of Bouncy Castle's
+       own org.bouncycastle.gpg.SExprParser. Tracked against openrewrite/jgit; re-evaluate
+       once jgit-gpg-bc is on bc*-jdk18on.
+       Added: 2026-08-10
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.bouncycastle/bc(pg|pkix|prov|util)-jdk15on@.*$</packageUrl>
+        <cve>CVE-2023-33202</cve>
+    </suppress>
 </suppressions>
