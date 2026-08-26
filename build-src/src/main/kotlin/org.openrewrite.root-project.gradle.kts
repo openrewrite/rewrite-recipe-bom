@@ -1,16 +1,11 @@
 plugins {
     id("org.openrewrite.base")
     id("com.netflix.nebula.release")
-    id("io.github.gradle-nexus.publish-plugin")
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
-        }
-    }
+tasks.register("closeAndReleaseSonatypeStagingRepository") {
+    group = "publishing"
+    description = "No-op stand-in for the task the Nexus plugin used to contribute, which gh-automation's publish-gradle.yml still invokes by name. Artifacts publish to the Code Genome Project, not Maven Central."
 }
 
 configure<nebula.plugin.release.git.base.ReleasePluginExtension> {
