@@ -24,10 +24,6 @@ javaPlatform {
 
 group = "org.openrewrite.recipe"
 
-repositories {
-    gradlePluginPortal()
-}
-
 val latest = if (project.hasProperty("releasing")) "latest.release" else "latest.integration"
 dependencies {
     api(platform("org.openrewrite:rewrite-bom:$latest"))
