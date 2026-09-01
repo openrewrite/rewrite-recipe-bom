@@ -143,6 +143,22 @@
        <packageUrl regex="true">^pkg:maven/io\.quarkus/quarkus-update-recipes@.*$</packageUrl>
         <cve>CVE-2026-50559</cve>
     </suppress>
+    <suppress until="2026-10-01Z">
+        <notes><![CDATA[
+       file name: rewrite-third-party-0.47.0-SNAPSHOT.jar (shaded: camel-upgrade-recipes 4.21.0)
+       False positive. Reference only. org.apache.camel.upgrade:camel-upgrade-recipes is the
+       OpenRewrite recipe artifact for migrating user code between Camel versions and ships no
+       Camel runtime. Its version tracks Camel releases, so the apache:camel CPE numerically
+       over-matches it. Suppressed by CPE rather than per-CVE so the next Camel batch stays
+       quiet too. Mirrors the block in rewrite-build-gradle-plugin, whose shared suppression
+       file this repo does not inherit.
+       Reported upstream as dependency-check/DependencyCheck#8780; expires 2026-10-01 to
+       re-check whether that landed.
+       Added: 2026-09-01
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.apache\.camel\.upgrade/camel-upgrade-recipes@.*$</packageUrl>
+        <cpe>cpe:/a:apache:camel</cpe>
+    </suppress>
     <suppress>
         <notes><![CDATA[
        False positive. CVE-2009-2475, CVE-2009-2476, CVE-2009-2676, CVE-2009-2689,
