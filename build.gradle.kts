@@ -56,6 +56,7 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-netty:$latest")
     api("org.openrewrite.recipe:rewrite-okhttp:$latest")
     api("org.openrewrite.recipe:rewrite-openapi:$latest")
+    api("org.openrewrite.recipe:rewrite-pmd:${latest}")
     api("org.openrewrite.recipe:rewrite-prethink:${latest}")
     api("org.openrewrite.recipe:rewrite-quarkus:$latest")
     api("org.openrewrite.recipe:rewrite-rewrite:$latest")
