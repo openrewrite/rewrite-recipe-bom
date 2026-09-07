@@ -225,4 +225,18 @@
         <cve>CVE-2026-54514</cve>
         <cve>CVE-2026-54515</cve>
     </suppress>
+    <suppress>
+        <notes><![CDATA[
+       False positive. CVE-2019-7722 (XXE) and CVE-2026-28338 (PMD Designer stored XSS) are
+       against net.sourceforge.pmd:pmd-core, the PMD static-analysis tool. rewrite-pmd is an
+       OpenRewrite recipe module for managing PMD configuration; it depends only on
+       rewrite-java/rewrite-templating and does not contain or use PMD. CPE name-match on
+       "pmd" only.
+       Cross-product CPE overclassifier — nothing for us to remediate, so suppressed indefinitely.
+       Added: 2026-09-07
+       ]]></notes>
+       <packageUrl regex="true">^pkg:maven/org\.openrewrite\.recipe/rewrite-pmd@.*$</packageUrl>
+        <cve>CVE-2019-7722</cve>
+        <cve>CVE-2026-28338</cve>
+    </suppress>
 </suppressions>
