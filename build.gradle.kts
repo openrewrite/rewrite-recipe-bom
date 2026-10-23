@@ -3,19 +3,12 @@ plugins {
     id("org.openrewrite.build.recipe-repositories") version("latest.release")
     id("org.openrewrite.root-project")
     id("org.openrewrite.maven-publish")
-    id("org.openrewrite.build.bom-alignment") version("latest.release")
     id("org.openrewrite.build.publish-cgp") version("latest.release")
 }
 
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
     resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
-}
-
-// rewrite-core pins an older jgit than the one jgit-gpg-bc pulls in; that lag is expected between
-// jgit releases and would otherwise block every publish, so keep jgit out of the alignment check only.
-configurations.named("resolveApi") {
-    exclude(group = "org.openrewrite.tools", module = "jgit")
 }
 
 javaPlatform {
