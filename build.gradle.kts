@@ -31,7 +31,6 @@ dependencies {
     api("org.openrewrite.recipe:rewrite-all:$latest")
     api("org.openrewrite.recipe:rewrite-apache:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
-    api("org.openrewrite.recipe:rewrite-feature-flags:$latest")
     api("org.openrewrite.recipe:rewrite-github-actions:$latest")
     api("org.openrewrite.recipe:rewrite-gitlab:$latest")
     api("org.openrewrite.recipe:rewrite-hibernate:$latest")
