@@ -132,7 +132,7 @@ abstract class DependencyGraph : DefaultTask() {
         |<html lang="en">
         |<head>
         |<meta charset="utf-8">
-        |<title>rewrite-recipe-bom build order</title>
+        |<title>What's in rewrite-recipe-bom</title>
         |<style>
         |body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
         |a { color: inherit; }
@@ -143,12 +143,12 @@ abstract class DependencyGraph : DefaultTask() {
         |</style>
         |</head>
         |<body>
-        |<h1>rewrite-recipe-bom build order</h1>
-        |<p>How the repositories behind <a href="https://github.com/openrewrite/rewrite-recipe-bom">rewrite-recipe-bom</a>
-        |depend on one another, as of ${LocalDate.now()}. An arrow points from a repository to the ones that depend on it.</p>
+        |<h1>What's in rewrite-recipe-bom</h1>
+        |<p>The repositories whose modules <a href="https://github.com/openrewrite/rewrite-recipe-bom">rewrite-recipe-bom</a>
+        |manages, and how they depend on one another, as of ${LocalDate.now()}. An arrow points from a repository to the ones that depend on it.</p>
         |<object type="image/svg+xml" data="dependencies.svg">dependencies.svg</object>
         |<h2>Build order</h2>
-        |<p>Each round only depends on earlier rounds, so the repositories within a round can be built in any order.</p>
+        |<p>To build these repositories from source, go round by round: each round only depends on earlier rounds, so the repositories within a round can be built in any order.</p>
         |<ol start="0">
         |${rounds.joinToString("\n") { round -> "<li>${round.joinToString(", ") { link(it, licenses.getValue(it)) }}</li>" }}
         |</ol>

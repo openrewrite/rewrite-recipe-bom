@@ -25,6 +25,13 @@
 Align version numbers for all OpenRewrite maintained recipe modules.
 Intended to help with developing Recipe modules which take dependencies or otherwise build upon rewrite-maintained Recipe modules.
 
+## What's included
+
+The BOM manages the modules from the repositories below, where each arrow points from a repository to the ones that depend on it.
+The [published page](https://openrewrite.github.io/rewrite-recipe-bom/) also lists the order to build them in from source.
+
+[![Dependencies between the repositories behind rewrite-recipe-bom](https://openrewrite.github.io/rewrite-recipe-bom/dependencies.svg)](https://openrewrite.github.io/rewrite-recipe-bom/)
+
 ## Where to get it
 
 Releases after 3.38.0 are published to the [Code Genome Project](https://artifacts.codegenomeproject.org/maven) rather than Maven Central, and that repository requires authentication.
@@ -117,9 +124,3 @@ codegenomePassword=your-download-token
 ```
 
 In CI, set the `ORG_GRADLE_PROJECT_codegenomeUsername` and `ORG_GRADLE_PROJECT_codegenomePassword` environment variables instead.
-
-## Build order
-
-To build these modules from source, see [how they depend on one another](https://openrewrite.github.io/rewrite-recipe-bom/), and in what order to build them.
-
-[![Dependencies between the repositories behind rewrite-recipe-bom](https://openrewrite.github.io/rewrite-recipe-bom/dependencies.svg)](https://openrewrite.github.io/rewrite-recipe-bom/)
