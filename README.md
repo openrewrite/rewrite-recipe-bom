@@ -25,12 +25,27 @@
 Align version numbers for all OpenRewrite maintained recipe modules.
 Intended to help with developing Recipe modules which take dependencies or otherwise build upon rewrite-maintained Recipe modules.
 
+## Where to get it
+
+Releases after 3.38.0 are published to the [Code Genome Project](https://artifacts.codegenomeproject.org/maven) rather than Maven Central, and that repository requires authentication.
+To get access, sign in to the Code Genome Project and create a download token; your build then authenticates with the email or username you signed in with, plus that token as the password.
+What you can download depends on your account: the Apache-licensed modules are available to any authenticated user, while [source-available](https://docs.openrewrite.org/licensing/openrewrite-licensing) modules require a Moderne subscription.
+
+Keep Maven Central in your build alongside the Code Genome Project, which hosts only OpenRewrite and Moderne artifacts, so the third-party libraries these modules depend on still resolve from Maven Central.
+See [the quickstart guide](https://docs.openrewrite.org/running-recipes/getting-started#step-2-add-rewrite-maven-plugin-or-rewrite-gradle-plugin-to-your-project) for more details.
+
 ## Maven Usage
 
 Maven provides the [Bill of Materials pattern](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms) for aligning dependency versions.
 
 ```xml
 <project>
+    <repositories>
+        <repository>
+            <id>codegenome</id>
+            <url>https://artifacts.codegenomeproject.org/maven</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.openrewrite.recipe</groupId>
@@ -54,12 +69,37 @@ Maven provides the [Bill of Materials pattern](https://maven.apache.org/guides/i
 </project>
 ```
 
+Add your credentials to your Maven `settings.xml` (typically at `~/.m2/settings.xml`):
+
+```xml
+<settings>
+    <servers>
+        <server>
+            <id>codegenome</id>
+            <username>USERNAME</username>
+            <password>TOKEN</password>
+        </server>
+    </servers>
+</settings>
+```
+
 
 ## Gradle Usage
 
 Gradle provides the [platform](https://docs.gradle.org/current/userguide/platforms.html#sub:using-platform-to-control-transitive-deps) function for aligning dependency versions.
 
 ```groovy
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://artifacts.codegenomeproject.org/maven"
+        credentials {
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
+        }
+    }
+}
+
 dependencies {
     implementation(platform("org.openrewrite.recipe:rewrite-recipe-bom:<version>"))
     
@@ -68,6 +108,15 @@ dependencies {
     implementation("org.openrewrite.recipe:rewrite-testing-frameworks")
 }
 ```
+
+Add your credentials to `~/.gradle/gradle.properties` rather than the copy in your repository, so they are never committed:
+
+```properties
+codegenomeUsername=you@example.com
+codegenomePassword=your-download-token
+```
+
+In CI, set the `ORG_GRADLE_PROJECT_codegenomeUsername` and `ORG_GRADLE_PROJECT_codegenomePassword` environment variables instead.
 
 ## Build order
 
