@@ -1,0 +1,44 @@
+---
+name: dependency-graph
+
+on:
+  schedule:
+    - cron: 0 6 * * 1
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      ORG_GRADLE_PROJECT_codegenomeUsername: ${{ secrets.CODEGENOME_USERNAME }}
+      ORG_GRADLE_PROJECT_codegenomePassword: ${{ secrets.CODEGENOME_TOKEN }}
+    steps:
+      - uses: openrewrite/gh-automation/.github/actions/setup@main
+        with:
+          develocity_access_key: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
+
+      - run: ./gradlew dependencyGraph
+
+      - run: |
+          sudo apt-get update
+          sudo apt-get install --yes graphviz
+          dot -Tsvg build/dependency-graph/dependencies.dot -o build/dependency-graph/dependencies.svg
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/dependency-graph
+
+      - id: deployment
+        uses: actions/deploy-pages@v5

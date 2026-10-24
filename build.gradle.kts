@@ -83,6 +83,11 @@ publishing {
     }
 }
 
+tasks.register<DependencyGraph>("dependencyGraph") {
+    notCompatibleWithConfigurationCache("resolves detached configurations at execution time")
+    outputDirectory = layout.buildDirectory.dir("dependency-graph")
+}
+
 tasks.register("licenseFormat") {
     println("License format task not implemented")
 }
