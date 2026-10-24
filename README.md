@@ -72,4 +72,7 @@ dependencies {
 ## Build order
 
 To build these modules from source, see [how they depend on one another](https://openrewrite.github.io/rewrite-recipe-bom/), and in what order to build them.
+
+[![Dependencies between the repositories behind rewrite-recipe-bom](https://openrewrite.github.io/rewrite-recipe-bom/dependencies.svg)](https://openrewrite.github.io/rewrite-recipe-bom/)
+
 The page is regenerated weekly by the [dependency-graph workflow](.github/workflows/dependency-graph.yml); to preview it locally, run `./gradlew dependencyGraph` followed by `dot -Tsvg build/dependency-graph/dependencies.dot -o build/dependency-graph/dependencies.svg`.
