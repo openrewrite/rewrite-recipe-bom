@@ -146,8 +146,6 @@ abstract class DependencyGraph : DefaultTask() {
         |<h1>rewrite-recipe-bom build order</h1>
         |<p>How the repositories behind <a href="https://github.com/openrewrite/rewrite-recipe-bom">rewrite-recipe-bom</a>
         |depend on one another, as of ${LocalDate.now()}. An arrow points from a repository to the ones that depend on it.</p>
-        |<p>Licenses: ${License.entries.joinToString(", ") { "<span class=\"repository ${it.name.lowercase()}\">${it.title}</span>" }},
-        |or <span class="repository apache msal">both</span> for repositories with modules under each.</p>
         |<object type="image/svg+xml" data="dependencies.svg">dependencies.svg</object>
         |<h2>Build order</h2>
         |<p>Each round only depends on earlier rounds, so the repositories within a round can be built in any order.</p>
