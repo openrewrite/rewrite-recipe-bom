@@ -28,8 +28,6 @@ dependencies {
     api("org.openrewrite:rewrite-polyglot:$latest")
     api("org.openrewrite:rewrite-templating:$latest")
 
-    api("org.openrewrite.meta:rewrite-analysis:$latest")
-
     api("org.openrewrite.recipe:rewrite-all:$latest")
     api("org.openrewrite.recipe:rewrite-apache:$latest")
     api("org.openrewrite.recipe:rewrite-cucumber-jvm:$latest")
