@@ -15,7 +15,7 @@
 <div align="center">
 
 <!-- Keep the gap above this line, otherwise they won't render correctly! -->
-[![ci](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml/badge.svg)](https://github.com/openrewrite/rewrite/actions/workflows/ci.yml)
+[![ci](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml/badge.svg)](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml)
 [![Apache 2.0](https://img.shields.io/github/license/openrewrite/rewrite-recipe-bom.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Contributing Guide](https://img.shields.io/badge/Contributing-Guide-informational)](https://github.com/openrewrite/.github/blob/main/CONTRIBUTING.md)
 </div>
@@ -74,5 +74,3 @@ dependencies {
 To build these modules from source, see [how they depend on one another](https://openrewrite.github.io/rewrite-recipe-bom/), and in what order to build them.
 
 [![Dependencies between the repositories behind rewrite-recipe-bom](https://openrewrite.github.io/rewrite-recipe-bom/dependencies.svg)](https://openrewrite.github.io/rewrite-recipe-bom/)
-
-The page is regenerated weekly by the [dependency-graph workflow](.github/workflows/dependency-graph.yml); to preview it locally, run `./gradlew dependencyGraph` followed by `dot -Tsvg build/dependency-graph/dependencies.dot -o build/dependency-graph/dependencies.svg`.
