@@ -20,7 +20,7 @@ abstract class DependencyGraph : DefaultTask() {
 
     enum class License(val pomName: String, val title: String, val color: String) {
         APACHE("Apache", "Apache License 2.0", "#ffffff"),
-        MSAL("Moderne Source Available", "Moderne Source Available License", "#fde3a7"),
+        MSAL("Moderne Source Available", "Moderne Source Available License", "#e4e4e4"),
     }
 
     companion object {
@@ -108,7 +108,7 @@ abstract class DependencyGraph : DefaultTask() {
     ) = buildString {
         appendLine("digraph dependencies {")
         appendLine("  rankdir=LR; ranksep=1; nodesep=0.15; fontname=Helvetica; fontsize=11;")
-        appendLine("  label=\"Apache License 2.0: white    Moderne Source Available License: amber    Both: striped\";")
+        appendLine("  label=\"Apache License 2.0: white    Moderne Source Available License: gray    Both: striped\";")
         appendLine("  node [shape=box, style=\"rounded,filled\", fontname=Helvetica, fontsize=11];")
         appendLine("  edge [color=\"#9a9a9a\", arrowsize=0.6];")
         rounds.forEach { round ->
