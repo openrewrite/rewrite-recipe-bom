@@ -15,7 +15,7 @@
 <div align="center">
 
 <!-- Keep the gap above this line, otherwise they won't render correctly! -->
-[![ci](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml/badge.svg)](https://github.com/openrewrite/rewrite-recipe-bom/actions/workflows/ci.yml)
+[![ci](https://codegenomeproject.org/ci/modules/openrewrite/rewrite-recipe-bom/badge.svg)](https://codegenomeproject.org/ci/modules/openrewrite/rewrite-recipe-bom/builds/latest)
 [![Apache 2.0](https://img.shields.io/github/license/openrewrite/rewrite-recipe-bom.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Contributing Guide](https://img.shields.io/badge/Contributing-Guide-informational)](https://github.com/openrewrite/.github/blob/main/CONTRIBUTING.md)
 </div>
