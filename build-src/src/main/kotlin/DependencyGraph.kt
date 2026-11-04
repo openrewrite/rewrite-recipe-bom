@@ -49,13 +49,15 @@ abstract class DependencyGraph : DefaultTask() {
 
     @TaskAction
     fun generate() {
-        val api = configurations.getByName("api").dependencies.map { "${it.group}:${it.name}:${it.version}" }
+        val api = configurations.getByName("api").dependencies.map { "${it.group}:${it.name}:latest.release" }
         val components = detachedConfiguration(api).incoming.resolutionResult.allComponents
             .filter { tracked(it) }
         val poms = poms(components)
         val repositoryByModule = poms.mapValues { (module, pom) -> repository(module, pom) }
         val licenses = poms.entries.groupBy({ repositoryByModule.getValue(it.key) }, { license(it.key, it.value) })
             .mapValues { (_, licenses) -> licenses.toSortedSet() }
+        val versions = components.groupBy({ repositoryByModule.getValue(module(it)) }, { it.moduleVersion!!.version })
+            .mapValues { (_, versions) -> versions.toSortedSet() }
         val bomRepositories = api.map { repositoryByModule.getValue(it.substringBeforeLast(':')) }.toSet()
 
         val graph = bomRepositories.associateWithTo(sortedMapOf()) { sortedSetOf<String>() }
@@ -74,7 +76,7 @@ abstract class DependencyGraph : DefaultTask() {
 
         val rounds = rounds(graph)
         val directory = outputDirectory.get().asFile
-        directory.resolve("dependencies.dot").writeText(dot(graph, rounds, licenses))
+        directory.resolve("dependencies.dot").writeText(dot(graph, rounds, licenses, versions))
         directory.resolve("index.html").writeText(html(rounds, licenses))
         logger.lifecycle("Wrote ${graph.size} repositories in ${rounds.size} build rounds to $directory")
     }
@@ -105,6 +107,7 @@ abstract class DependencyGraph : DefaultTask() {
         graph: Map<String, Set<String>>,
         rounds: List<List<String>>,
         licenses: Map<String, Set<License>>,
+        versions: Map<String, Set<String>>,
     ) = buildString {
         appendLine("digraph dependencies {")
         appendLine("  rankdir=LR; ranksep=1; nodesep=0.15; fontname=Helvetica; fontsize=11;")
@@ -117,9 +120,10 @@ abstract class DependencyGraph : DefaultTask() {
         graph.keys.forEach {
             val colors = licenses.getValue(it).map { license -> license.color }
             val style = if (colors.size > 1) "style=striped, " else ""
-            appendLine("  \"$it\" [label=\"${it.substringAfter('/')}\", ${style}fillcolor=\"${colors.joinToString(":")}\", " +
+            val release = versions.getValue(it).singleOrNull()?.let { version -> "/releases/tag/v$version" } ?: ""
+            appendLine("  \"$it\" [label=\"${it.substringAfter('/')}\\n${versions.getValue(it).joinToString(", ")}\", ${style}fillcolor=\"${colors.joinToString(":")}\", " +
                     "tooltip=\"$it (${licenses.getValue(it).joinToString(" and ") { license -> license.title }})\", " +
-                    "URL=\"https://github.com/$it\", target=\"_top\"];")
+                    "URL=\"https://github.com/$it$release\", target=\"_top\"];")
         }
         graph.forEach { (repository, dependencies) ->
             dependencies.forEach { appendLine("  \"$it\" -> \"$repository\";") }
