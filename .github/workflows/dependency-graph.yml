@@ -29,7 +29,7 @@ jobs:
         with:
           develocity_access_key: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
 
-      - run: ./gradlew dependencyGraph
+      - run: ./gradlew --build-cache dependencyGraph
 
       - run: |
           sudo apt-get update
