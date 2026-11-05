@@ -92,8 +92,8 @@ tasks.register("licenseFormat") {
 
 dependencyCheck {
     analyzers.assemblyEnabled = false
-    analyzers.nodeAuditEnabled = false
-    analyzers.nodeEnabled = false
+    analyzers.nodeAudit { enabled = false }
+    analyzers.nodePackage { enabled = false }
     failBuildOnCVSS = System.getenv("FAIL_BUILD_ON_CVSS")?.toFloatOrNull() ?: 9.0F
     format = System.getenv("DEPENDENCY_CHECK_FORMAT") ?: "HTML"
     nvd.apiKey = System.getenv("NVD_API_KEY")
