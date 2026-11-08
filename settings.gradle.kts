@@ -19,6 +19,8 @@ pluginManagement {
     }
 }
 
+apply(from = "gradle/maven-central-mirror.settings.gradle.kts")
+
 rootProject.name = "rewrite-recipe-bom"
 
 includeBuild(

@@ -2,11 +2,6 @@ plugins {
     `kotlin-dsl`
 }
 
-repositories {
-    mavenCentral()
-    gradlePluginPortal()
-}
-
 dependencies {
     implementation("org.owasp:dependency-check-gradle:latest.release")
     implementation("com.netflix.nebula.contacts:com.netflix.nebula.contacts.gradle.plugin:latest.release")
