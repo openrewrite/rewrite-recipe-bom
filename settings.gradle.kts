@@ -1,7 +1,12 @@
 pluginManagement {
     repositories {
         mavenLocal()
-        mavenCentral()
+        mavenCentral {
+            content {
+                excludeGroupAndSubgroups("org.openrewrite")
+                excludeGroupAndSubgroups("io.moderne")
+            }
+        }
         maven {
             name = "codegenome"
             url = uri("https://artifacts.codegenomeproject.org/maven")
@@ -18,8 +23,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
-apply(from = "gradle/maven-central-mirror.settings.gradle.kts")
 
 rootProject.name = "rewrite-recipe-bom"
 
